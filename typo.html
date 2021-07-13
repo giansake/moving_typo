@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="app.js"></script>
+
+    <!-- SPLITTING -->
+    <script type="text/javascript" src="https://unpkg.com/splitting@1.0.6/dist/splitting.min.js"></script>
+    <!-- GSAP -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/MotionPathPlugin.min.js"></script>
+
+
+    <title>Moving Typography At Scroll</title>
+
+  </head>
+  <body>
+
+    <!-- <div id="typography-wrapper" class="wrapper">
+        <div class="typo" data-splitting> WORKS </div>
+    </div> -->
+    <div id="volanti" class="section">
+      <!-- <svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1007.73 769.11">
+        <title>Senza titolo-1</title>
+
+        <path id="_w" d="M381.73,388.61l-14-55.05h7.52l6.53,27.85c1.63,6.86,3.11,13.72,4.09,19h.16c.9-5.47,2.61-12,4.49-19.11l7.35-27.77h7.44L412,361.49c1.56,6.54,3,13.07,3.84,18.87H416c1.14-6,2.69-12.17,4.41-19l7.26-27.77H435l-15.6,55.05H412L405,359.94a165.48,165.48,0,0,1-3.6-18h-.16a171.45,171.45,0,0,1-4.24,18l-7.85,28.67Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="_o" d="M488.93,360.51c0,18.95-11.52,29-25.56,29-14.54,0-24.75-11.27-24.75-27.93,0-17.49,10.86-28.92,25.56-28.92C479.21,332.66,488.93,344.18,488.93,360.51Zm-42.72.9c0,11.76,6.37,22.3,17.56,22.3s17.65-10.37,17.65-22.87c0-10.95-5.72-22.38-17.57-22.38S446.21,349.32,446.21,361.41Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="_r" d="M498.19,334.29a74.46,74.46,0,0,1,13.64-1.14c7.6,0,12.5,1.39,15.93,4.49a13.74,13.74,0,0,1,4.33,10.46c0,7.27-4.57,12.09-10.37,14v.24c4.24,1.47,6.77,5.39,8.08,11.11,1.8,7.68,3.11,13,4.25,15.11H526.7c-.9-1.55-2.13-6.29-3.68-13.15-1.63-7.6-4.57-10.46-11-10.7h-6.7v23.85h-7.11Zm7.11,25.08h7.27c7.59,0,12.41-4.17,12.41-10.45,0-7.11-5.14-10.22-12.66-10.3a28.89,28.89,0,0,0-7,.66Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="_k" d="M542.16,333.56h7.11v26.55h.24c1.47-2.13,2.94-4.09,4.33-5.89l16.82-20.66h8.83l-19.93,23.36L581,388.61h-8.41l-18.14-27-5.22,6v21h-7.11Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="_s" d="M585.47,380a25.2,25.2,0,0,0,12.75,3.6c7.26,0,11.51-3.84,11.51-9.4,0-5.14-2.94-8.08-10.37-10.94-9-3.19-14.54-7.84-14.54-15.6,0-8.58,7.1-14.95,17.8-14.95a25.18,25.18,0,0,1,12.18,2.69l-2,5.8a21.9,21.9,0,0,0-10.45-2.61c-7.51,0-10.37,4.49-10.37,8.25,0,5.15,3.35,7.68,10.94,10.62,9.31,3.59,14,8.09,14,16.17,0,8.5-6.29,15.85-19.28,15.85-5.3,0-11.1-1.55-14-3.52Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="w_" d="M401,371c32-44,53-98,34-154S371.83,82.9,247,92c-96,7-125.43,67.93-109,96,24,41,95.46,52.31,149,5,43-38,31.65-112.93-22-130-66-21-83,70-175,44S1,58,1,58" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10"/>
+        <path id="o_" d="M463,366c19,34,21.63,102.29-9,185-20,54-68,94-119,102-101.8,16-156-70-92-129s220-58,358-3c184.92,73.7,155,192,119,250" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path id="r_" d="M514,375c5,34,25,108,79,123s106,6,138-18c33.65-25.24,89-143,27-183S648,426,844,539c66,38,165.6,108.17,161,156-5,52-76,75-116,74" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 3px"/>
+        <path id="k_" d="M554,354c-17-61-9-177,100-197s90,112,222,96c97.23-11.79,117-103,72-250" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 4px"/>
+        <path id="s_" d="M612.09,366.27C657,320,793,202,875,315c51.64,71.16-38.28,419.06-343,362C281,630,384,346-1,357" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 5px"/>
+      </svg> -->
+
+
+      <!-- <svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1007.73 769.11">
+        <title>Senza titolo-1</title>
+        <path id="_w" d="M381.73,388.61l-14-55.05h7.52l6.53,27.85c1.63,6.86,3.11,13.72,4.09,19h.16c.9-5.47,2.61-12,4.49-19.11l7.35-27.77h7.44L412,361.49c1.56,6.54,3,13.07,3.84,18.87H416c1.14-6,2.69-12.17,4.41-19l7.26-27.77H435l-15.6,55.05H412L405,359.94a165.48,165.48,0,0,1-3.6-18h-.16a171.45,171.45,0,0,1-4.24,18l-7.85,28.67Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="_o" d="M488.93,360.51c0,18.95-11.52,29-25.56,29-14.54,0-24.75-11.27-24.75-27.93,0-17.49,10.86-28.92,25.56-28.92C479.21,332.66,488.93,344.18,488.93,360.51Zm-42.72.9c0,11.76,6.37,22.3,17.56,22.3s17.65-10.37,17.65-22.87c0-10.95-5.72-22.38-17.57-22.38S446.21,349.32,446.21,361.41Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="_r" d="M498.19,334.29a74.46,74.46,0,0,1,13.64-1.14c7.6,0,12.5,1.39,15.93,4.49a13.74,13.74,0,0,1,4.33,10.46c0,7.27-4.57,12.09-10.37,14v.24c4.24,1.47,6.77,5.39,8.08,11.11,1.8,7.68,3.11,13,4.25,15.11H526.7c-.9-1.55-2.13-6.29-3.68-13.15-1.63-7.6-4.57-10.46-11-10.7h-6.7v23.85h-7.11Zm7.11,25.08h7.27c7.59,0,12.41-4.17,12.41-10.45,0-7.11-5.14-10.22-12.66-10.3a28.89,28.89,0,0,0-7,.66Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="_k" d="M542.16,333.56h7.11v26.55h.24c1.47-2.13,2.94-4.09,4.33-5.89l16.82-20.66h8.83l-19.93,23.36L581,388.61h-8.41l-18.14-27-5.22,6v21h-7.11Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="_s" d="M585.47,380a25.2,25.2,0,0,0,12.75,3.6c7.26,0,11.51-3.84,11.51-9.4,0-5.14-2.94-8.08-10.37-10.94-9-3.19-14.54-7.84-14.54-15.6,0-8.58,7.1-14.95,17.8-14.95a25.18,25.18,0,0,1,12.18,2.69l-2,5.8a21.9,21.9,0,0,0-10.45-2.61c-7.51,0-10.37,4.49-10.37,8.25,0,5.15,3.35,7.68,10.94,10.62,9.31,3.59,14,8.09,14,16.17,0,8.5-6.29,15.85-19.28,15.85-5.3,0-11.1-1.55-14-3.52Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="w_" d="M401,371c54.41,0,53-98,34-154S371.83,82.9,247,92c-96,7-125.43,67.93-109,96,24,41,95.46,52.31,149,5,43-38,31.65-112.93-22-130-66-21-83,70-175,44S1,58,1,58" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10"/>
+        <path id="o_" d="M463,366c28,0,21.63,102.29-9,185-20,54-68,94-119,102-101.8,16-156-70-92-129s220-58,358-3c184.92,73.7,155,192,119,250" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path id="r_" d="M514,375c22.5,0,25,108,79,123s106,6,138-18c33.65-25.24,89-143,27-183S648,426,844,539c66,38,165.6,108.17,161,156-5,52-76,75-116,74" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 3px"/>
+        <path id="k_" d="M554,354c-42,0-9-177,100-197s90,112,222,96c97.23-11.79,117-103,72-250" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 4px"/>
+        <path id="s_" d="M612.09,366.27C676.57,366.27,793,202,875,315c51.64,71.16-38.28,419.06-343,362C281,630,384,346-1,357" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 5px"/>
+      </svg> -->
+
+      <!-- <svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1007.73 769.11">
+        <title>Senza titolo-1</title>
+        <path id="_w" d="M381.73,388.61l-14-55.05h7.52l6.53,27.85c1.63,6.86,3.11,13.72,4.09,19h.16c.9-5.47,2.61-12,4.49-19.11l7.35-27.77h7.44L412,361.49c1.56,6.54,3,13.07,3.84,18.87H416c1.14-6,2.69-12.17,4.41-19l7.26-27.77H435l-15.6,55.05H412L405,359.94a165.48,165.48,0,0,1-3.6-18h-.16a171.45,171.45,0,0,1-4.24,18l-7.85,28.67Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="_o" d="M488.93,360.51c0,18.95-11.52,29-25.56,29-14.54,0-24.75-11.27-24.75-27.93,0-17.49,10.86-28.92,25.56-28.92C479.21,332.66,488.93,344.18,488.93,360.51Zm-42.72.9c0,11.76,6.37,22.3,17.56,22.3s17.65-10.37,17.65-22.87c0-10.95-5.72-22.38-17.57-22.38S446.21,349.32,446.21,361.41Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="_r" d="M498.19,334.29a74.46,74.46,0,0,1,13.64-1.14c7.6,0,12.5,1.39,15.93,4.49a13.74,13.74,0,0,1,4.33,10.46c0,7.27-4.57,12.09-10.37,14v.24c4.24,1.47,6.77,5.39,8.08,11.11,1.8,7.68,3.11,13,4.25,15.11H526.7c-.9-1.55-2.13-6.29-3.68-13.15-1.63-7.6-4.57-10.46-11-10.7h-6.7v23.85h-7.11Zm7.11,25.08h7.27c7.59,0,12.41-4.17,12.41-10.45,0-7.11-5.14-10.22-12.66-10.3a28.89,28.89,0,0,0-7,.66Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="_k" d="M542.16,333.56h7.11v26.55h.24c1.47-2.13,2.94-4.09,4.33-5.89l16.82-20.66h8.83l-19.93,23.36L581,388.61h-8.41l-18.14-27-5.22,6v21h-7.11Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="_s" d="M585.47,380a25.2,25.2,0,0,0,12.75,3.6c7.26,0,11.51-3.84,11.51-9.4,0-5.14-2.94-8.08-10.37-10.94-9-3.19-14.54-7.84-14.54-15.6,0-8.58,7.1-14.95,17.8-14.95a25.18,25.18,0,0,1,12.18,2.69l-2,5.8a21.9,21.9,0,0,0-10.45-2.61c-7.51,0-10.37,4.49-10.37,8.25,0,5.15,3.35,7.68,10.94,10.62,9.31,3.59,14,8.09,14,16.17,0,8.5-6.29,15.85-19.28,15.85-5.3,0-11.1-1.55-14-3.52Z" transform="translate(1.07 -2.41)" style="fill: red"/>
+        <path id="w_" d="M400.5,360.5C454.91,360.5,454,273,435,217S371.83,82.9,247,92c-96,7-125.43,67.93-109,96,24,41,95.46,52.31,149,5,43-38,31.65-112.93-22-130-66-21-83,70-175,44S1,58,1,58" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10"/>
+        <path id="o_" d="M463,360c28,0,21.63,108.29-9,191-20,54-68,94-119,102-101.8,16-156-70-92-129s220-58,358-3c184.92,73.7,155,192,119,250" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 2px"/>
+        <path id="r_" d="M514,359.5c22.5,0,25,123.5,79,138.5s106,6,138-18c33.65-25.24,89-143,27-183S648,426,844,539c66,38,165.6,108.17,161,156-5,52-76,75-116,74" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 3px"/>
+        <path id="k_" d="M554,362c-42,0-9-185,100-205s90,112,222,96c97.23-11.79,117-103,72-250" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 4px"/>
+        <path id="s_" d="M602.5,360.5C667,360.5,793,202,875,315c51.64,71.16-38.28,419.06-343,362C281,630,384,346-1,357" transform="translate(1.07 -2.41)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 5px"/>
+      </svg> -->
+
+
+      <svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1004.65 768">
+        <title>Senza titolo-1</title>
+        <path id="_w" d="M346.79,332.1H358l11.12,42.19h.16l12.65-42.19h10.55l12.41,42.19h.17l11.36-42.19h10.87l-16.8,57.44h-9.9l-13.46-43.08H387l-13.47,43.08h-9.9Z" transform="translate(-0.5 -3)" style="fill: red"/>
+        <path id="_o" d="M430.36,360.66a32.12,32.12,0,0,1,2.31-12.45,27.37,27.37,0,0,1,6.41-9.46,28.47,28.47,0,0,1,9.73-6,34.76,34.76,0,0,1,12.3-2.11,35.34,35.34,0,0,1,12.41,2.11,28.83,28.83,0,0,1,9.81,6,27.21,27.21,0,0,1,6.46,9.46,32.12,32.12,0,0,1,2.31,12.45A31.73,31.73,0,0,1,489.79,373a28.33,28.33,0,0,1-6.46,9.57,29.25,29.25,0,0,1-9.81,6.25A33.64,33.64,0,0,1,461.11,391a33.09,33.09,0,0,1-12.3-2.23,28.9,28.9,0,0,1-9.73-6.25,28.5,28.5,0,0,1-6.41-9.57A31.73,31.73,0,0,1,430.36,360.66Zm11.11,0a24.3,24.3,0,0,0,1.42,8.48,19.72,19.72,0,0,0,4.06,6.69,18.57,18.57,0,0,0,6.24,4.42,19.66,19.66,0,0,0,8,1.58,19.88,19.88,0,0,0,8-1.58,18.57,18.57,0,0,0,6.29-4.42,19.7,19.7,0,0,0,4.05-6.69,24.3,24.3,0,0,0,1.42-8.48,23.45,23.45,0,0,0-1.42-8.28,20.15,20.15,0,0,0-4-6.65,18.63,18.63,0,0,0-6.25-4.46,19.77,19.77,0,0,0-8.11-1.62,19.45,19.45,0,0,0-8.07,1.62,18.67,18.67,0,0,0-6.21,4.46,20.34,20.34,0,0,0-4,6.65A23.45,23.45,0,0,0,441.47,360.66Z" transform="translate(-0.5 -3)" style="fill: red"/>
+        <path id="_r" d="M502,332.1h20a35.79,35.79,0,0,1,7.86.85,20.34,20.34,0,0,1,6.78,2.8,14.54,14.54,0,0,1,4.74,5.11,15.48,15.48,0,0,1,1.79,7.71,14.67,14.67,0,0,1-3.53,10.18,17.8,17.8,0,0,1-9.61,5.32l15.33,25.47H533L519.68,365.2h-7.46v24.34H502Zm18.58,24.75a29.46,29.46,0,0,0,4.38-.33,12.56,12.56,0,0,0,3.93-1.22,7.66,7.66,0,0,0,2.88-2.55,7.38,7.38,0,0,0,1.14-4.26,6.54,6.54,0,0,0-1.06-3.86,7.86,7.86,0,0,0-2.67-2.39,11.27,11.27,0,0,0-3.7-1.21,25.5,25.5,0,0,0-4-.33h-9.25v16.15Z" transform="translate(-0.5 -3)" style="fill: red"/>
+        <path id="_k" d="M553,332.1h10.22v24.82h.24l24-24.82H601.3l-26.85,26.53,28.63,30.91H588.72l-25.23-28.8h-.24v28.8H553Z" transform="translate(-0.5 -3)" style="fill: red"/>
+        <path id="_s" d="M638.22,344.11a12.43,12.43,0,0,0-4.59-3.53,13.61,13.61,0,0,0-6-1.42,15,15,0,0,0-3.57.44,11.1,11.1,0,0,0-3.25,1.38,7.74,7.74,0,0,0-2.39,2.44,6.71,6.71,0,0,0-.93,3.61,6.52,6.52,0,0,0,.81,3.33,7.33,7.33,0,0,0,2.23,2.35,15,15,0,0,0,3.45,1.7c1.35.49,2.84,1,4.46,1.46,1.84.6,3.74,1.27,5.72,2a22.42,22.42,0,0,1,5.43,3,14.81,14.81,0,0,1,4.06,4.71,14.25,14.25,0,0,1,1.58,7.05,18,18,0,0,1-1.7,8.08,16.68,16.68,0,0,1-4.54,5.72,19.43,19.43,0,0,1-6.66,3.4,27.88,27.88,0,0,1-8,1.14,30.13,30.13,0,0,1-11-2.07,21.17,21.17,0,0,1-8.76-6.12l7.3-6.82a14.67,14.67,0,0,0,5.64,4.63,15.1,15.1,0,0,0,10.58,1.26,9.63,9.63,0,0,0,3.37-1.51,8.52,8.52,0,0,0,2.44-2.63,7.68,7.68,0,0,0,.93-3.94,6.43,6.43,0,0,0-1.06-3.77,9.49,9.49,0,0,0-2.83-2.6,20.67,20.67,0,0,0-4.22-1.9l-5.12-1.71a52.05,52.05,0,0,1-5.19-1.94,17.17,17.17,0,0,1-4.66-3,14.38,14.38,0,0,1-3.37-4.58,15.6,15.6,0,0,1-1.3-6.77A14.81,14.81,0,0,1,609,340a16.08,16.08,0,0,1,4.78-5.23,21.43,21.43,0,0,1,6.74-3.09,29.62,29.62,0,0,1,7.66-1,27.54,27.54,0,0,1,8.89,1.54,21.73,21.73,0,0,1,7.83,4.63Z" transform="translate(-0.5 -3)" style="fill: red"/>
+        <path id="w_" d="M400.5,360.5C454.91,360.5,454,273,435,217S371.83,82.9,247,92c-96,7-125.43,67.93-109,96,24,41,95.46,52.31,149,5,43-38,31.65-112.93-22-130-66-21-83,70-175,44S1,58,1,58" transform="translate(-0.5 -3)" style="fill: none"/>
+        <path id="o_" d="M463,360c28,0,21.63,108.29-9,191-20,54-68,94-119,102-101.8,16-156-70-92-129s220-58,358-3c184.92,73.7,155,192,119,250" transform="translate(-0.5 -3)" style="fill: none"/>
+        <path id="r_" d="M514.5,359.5C537,359.5,539,483,593,498s106,6,138-18c33.65-25.24,89-143,27-183S648,426,844,539c66,38,165.6,108.17,161,156-5,52-76,75-116,74" transform="translate(-0.5 -3)" style="fill: none"/>
+        <path id="k_" d="M563,361c146,0-8-184,101-204s90,112,222,96c97.23-11.79,117-103,72-250" transform="translate(-0.5 -3)" style="fill: none"/>
+        <path id="s_" d="M632.5,360.5C715.5,360.5,823,202,905,315c51.64,71.16-38.28,419.06-343,362C311,630,414.5,321.5.5,356.5" transform="translate(-0.5 -3)" style="fill: none"/>
+      </svg>
+
+
+
+
+    </div>
+
+    <div class="section_2">
+
+    </div>
+    <div class="section_3_gallery">
+      <div class="image">
+        <img src="https://www.fillmurray.com/640/360">
+      </div>
+      <div class="image">
+        <img src="https://www.fillmurray.com/640/360">
+      </div>
+      <div class="image">
+        <img src="https://www.fillmurray.com/640/360">
+      </div>
+      <div class="image">
+        <img src="https://www.fillmurray.com/640/360">
+      </div>
+      <div class="image">
+        <img src="https://www.fillmurray.com/640/360">
+      </div>
+      <div class="image">
+        <img src="https://www.fillmurray.com/640/360">
+      </div>
+      <div class="image">
+        <img src="https://www.fillmurray.com/640/360">
+      </div>
+      <div class="image">
+        <img src="https://www.fillmurray.com/640/360">
+      </div>
+      <div class="image">
+        <img src="https://www.fillmurray.com/640/360">
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // ------------------------
+      // how to async
+      function firstFunction(){
+        console.log('i start');
+      }
+      var letters = ''
+      const secondFunction = async () => {
+        const result = await firstFunction()
+        // do something else here after firstFunction completes
+        console.log('i finish');
+      }
+      // ------------------------
+      // ------------------------
+
+
+      // ------------------------
+      // ONLOAD
+      var tl = gsap.timeline({paused:true});
+      window.addEventListener('DOMContentLoaded', (event) => {
+
+
+        // split typography into char
+        Splitting();
+
+        letters = document.getElementsByClassName("char");
+        for(var i = 0; i < letters.length; i++)
+        {
+          var randomColor = generateRandomColor();
+          //tl.to(letters[i], {duration:1, color:"blue", fontSize:"1.4rem"}, '<-0.1');
+          tl.to(letters[i], {duration:2, color:randomColor}, '<-0.01');
+
+        }
+        tl.restart(true, false);
+
+        animate();
+      });
+
+
+
+
+      // ------------------------
+      // ------------------------
+
+      function generateRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      // ------------------------
+      // ------------------------
+
+
+
+
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.registerPlugin(MotionPathPlugin);
+
+
+      // var duration = document.getElementById('typography-wrapper').offsetHeight+'px';
+      // ScrollTrigger.create({
+      //   trigger: ".typo",
+      //   start: "top 56px",
+      //   end:duration,
+      //   pin: true,
+      //   markers:true,
+      //   pinSpacing: false,
+      //   onEnter: () => animate(),
+      // });
+
+      const letters_ = ["#_w","#_o","#_r","#_k", "#_s"];
+      const paths_ = ["#w_","#o_","#r_","#k_", "#s_"];
+
+      function fade_out(){
+        console.log('ENDED');
+        gsap.to('#volanti', {duration:0.8, opacity:0, onComplete:function(){
+          document.getElementById('volanti').style.display = "none";
+        }})
+      }
+
+      function fade_in(){
+        console.log('STARTED AGAIN');
+        document.getElementById('volanti').style.display = "block";
+        gsap.to('#volanti', {duration:0.8, opacity:1, onComplete:function(){
+        }})
+      }
+
+      function animate(){
+        var new_tl = gsap.timeline({paused:true,
+          scrollTrigger: {
+            trigger: ".section",
+            markers:true,
+            pin: true,   // pin the trigger element while active
+            start: "top top", // when the top of the trigger hits the top of the viewport
+            end: "+="+window.innerHeight, // end after scrolling 500px beyond the start
+            scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+            onLeave: () => fade_out(),
+            onEnterBack: () => fade_in(),
+          },
+
+        });
+
+        var dur=1;
+        letters_.forEach((letter, i) => {
+          new_tl.to(
+            letter,
+            {
+              duration:dur,
+              // ease: "expo.in",
+              // opacity:0,
+              scale:8,
+              motionPath:{
+                path: paths_[i],
+                align: paths_[i],
+                autoRotate: true,
+                alignOrigin: [0.5, 0.5]
+              }
+            }, '<-0.02');
+          new_tl.from(
+            letter,
+            {
+              duration:dur,
+              fill:"white",
+            }, '<');
+        });
+
+        new_tl.to(
+          '.section_2',
+          {
+            duration:dur,
+            backgroundColor:"black"
+          },'<');
+
+
+        // new_tl.restart(true, false);
+
+      }
+    </script>
+  </body>
+</html>
