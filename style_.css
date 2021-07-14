@@ -170,3 +170,8 @@ body{
 .svg{
   min-width: 100vw;
 }
+
+
+.button.is-checked {
+  background-color: #28F;
+}

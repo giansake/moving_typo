@@ -15,6 +15,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/MotionPathPlugin.min.js"></script>
     <script src="jquery-resizeEnd.min.js"></script>
 
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
 
     <title>Moving Typography At Scroll</title>
 
@@ -95,22 +97,63 @@
       <div id="s3" class="section gallery_index">
         <div class="index_filters">
 
-          <h5>Titolo section</h5>
-            <h6>Filtro</h6>
-            <h6>Filtro</h6>
-            <h6>Filtro</h6>
-          <h5>Titolo section</h5>
-            <h6>Filtro</h6>
-            <h6>Filtro</h6>
-          <h5>Titolo section</h5>
-            <h6>Filtro</h6>
-            <h6>Filtro</h6>
-            <h6>Filtro</h6>
+          <div class="ui-group">
+            <h3>SERVICES</h3>
+            <div class="button-group" data-filter="services">
+              <button class="button" data-filter=".editorial" type="button" name="button">
+                Editorial
+              </button>
+              <button class="button" data-filter=".set_design" type="button" name="button">
+                Set Design
+              </button>
+            </div>
+          </div>
+
+
+          <div class="ui-group">
+            <h3>CLIENTS</h3>
+            <div class="button-group" data-filter="clients">
+              <button class="button" data-filter=".timberland" type="button" name="button">
+                Timberland
+              </button>
+              <button class="button" data-filter=".sportmax" type="button" name="button">
+                Sportmax
+              </button>
+              <button class="button" data-filter=".magazine" type="button" name="button">
+                Magazine
+              </button>
+            </div>
+          </div>
+
+
+          <div class="ui-group">
+            <h3>PHOTOGRAPHER</h3>
+            <div class="button-group" data-filter="clients">
+              <button class="button" data-filter=".frank_lebon" type="button" name="button">
+                Frank Lebon
+              </button>
+              <button class="button" data-filter=".ferry_van_der_nat" type="button" name="button">
+                Ferry Van Der Nat
+              </button>
+            </div>
+          </div>
 
         </div>
+
+
         <div class="index_list">
-
+          <div class="index_item editorial timberland frank_lebon">
+            <h3>Timberland</h3>
+          </div>
+          <div class="index_item set_design sportmax frank_lebon">
+            <h3>Sportmax</h3>
+          </div>
+          <div class="index_item set_design magazine ferry_van_der_nat">
+            <h3>Magazine</h3>
+          </div>
         </div>
+
+
       </div>
 
 
@@ -123,6 +166,54 @@
 
 
     <script type="text/javascript">
+
+      // ---------------------------------------------
+      // ISOTOPE (filters)
+      jQuery(function($) {
+        var $grid = $('.index_list').isotope({
+          itemSelector: '.index_item',
+          layoutMode: 'vertical'
+        });
+
+        // store filter for each group
+        var filters = {};
+        $('.index_filters').on( 'click', '.button', function( event ) {
+          var $button = $( event.currentTarget );
+          // get group key
+          var $buttonGroup = $button.parents('.button-group');
+          var filterGroup = $buttonGroup.attr('data-filter-group');
+          // set filter for group
+          filters[ filterGroup ] = $button.attr('data-filter');
+          // combine filters
+          var filterValue = concatValues( filters );
+          // set filter for Isotope
+          $grid.isotope({ filter: filterValue });
+        });
+
+
+        // change is-checked class on buttons
+        $('.button-group').each( function( i, buttonGroup ) {
+          var $buttonGroup = $( buttonGroup );
+          $buttonGroup.on( 'click', 'button', function( event ) {
+            $buttonGroup.find('.is-checked').removeClass('is-checked');
+            var $button = $( event.currentTarget );
+            $button.addClass('is-checked');
+          });
+        });
+      });
+
+      // flatten object by concatting values
+      function concatValues( obj ) {
+        var value = '';
+        for ( var prop in obj ) {
+          value += obj[ prop ];
+        }
+        return value;
+      }
+      // ---------------------------------------------
+
+
+
 
       // ---------------------------------------------
       // ON LOAD
@@ -218,7 +309,6 @@
 
         let els = document.getElementsByClassName("gallery_item_header");
         let items = document.getElementsByClassName("gallery_item");
-
 
         for(var i = 0; i < els.length; i++)
         {
