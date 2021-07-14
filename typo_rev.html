@@ -206,7 +206,7 @@
           id: 'st_header',
           trigger: ".gallery_header",
           start: "top top",
-          end:opening_sect_hgt + dura,
+          end:opening_sect_hgt + dura - 30,
           pin: true,
           markers:true,
           pinSpacing: false,
@@ -223,12 +223,12 @@
         for(var i = 0; i < els.length; i++)
         {
           let temp_sect_hgt = window.pageYOffset + items[i].getBoundingClientRect().top;
-
+          console.log(temp_sect_hgt);
           ScrollTrigger.create({
             id: 'st_gallery_item_'+i,
             trigger: els[i],
             start: "top 30px",
-            end: opening_sect_hgt+temp_sect_hgt,
+            end: opening_sect_hgt+temp_sect_hgt-60,
             pin: true,
             markers:true,
             pinSpacing: false
