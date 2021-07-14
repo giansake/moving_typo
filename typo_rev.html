@@ -124,18 +124,29 @@
 
     <script type="text/javascript">
 
+      // ON LOAD
       window.addEventListener('DOMContentLoaded', (event) => {
         animate();
         initScrollTriggers();
+        console.log('[page is loaded] ready!');
+      });
+
+      // ON RESIZE
+      jQuery(function($) {
+        $(window).on("resizeEnd", function (event) {
+          initScrollTriggers();
+          console.log('[end] window resize');
+        });
       });
 
 
 
+
+      // CAPPELLO
       const letters_ = ["#_w","#_o","#_r","#_k", "#_s"];
       const paths_ = ["#w_","#o_","#r_","#k_", "#s_"];
       var dur=1;
       function animate(){
-
 
         ScrollTrigger.matchMedia({
           "(min-width: 800px)": function(){
@@ -158,8 +169,6 @@
                 letter,
                 {
                   duration:dur,
-                  // ease: "expo.in",
-                  // opacity:0,
                   scale:4,
                   motionPath:{
                     path: paths_[i],
@@ -168,50 +177,19 @@
                     alignOrigin: [0.5, 0.5]
                   }
                 }, '<');
-              // new_tl.from(
-              //   letter,
-              //   {
-              //     duration:dur,
-              //     fill:"white",
-              //   }, '<');
             });
-
-            // new_tl.to(
-            //   '.section_2',
-            //   {
-            //     duration:dur/2,
-            //     backgroundColor:"black"
-            //   },'<');
-
           }
         })
       }
 
-
-
-
       function fade_out(){}
-
       function fade_in(){}
+      // ---------------------------------------------
 
 
 
 
-
-
-
-      // for each gallery item header
-      // init scrolltrigger
-
-      jQuery(function($) {
-        $(window).on("resizeEnd", function (event) {
-          console.log('[end] window resize');
-          // ScrollTrigger.refresh()
-          initScrollTriggers();
-        });
-      });
-
-
+      // SCROLL TRIGGERS
       var scrolltriggers = [];
       function initScrollTriggers(){
         if (scrolltriggers.length > 0) {
@@ -243,11 +221,6 @@
         for(var i = 0; i < els.length; i++)
         {
           let temp_sect_hgt = window.pageYOffset + items[i].getBoundingClientRect().top;
-          // let temp_sect_hgt = items[i].offsetHeight;
-          // console.log(items[i].getBoundingClientRect())
-          // console.log(els[i]);
-          //titolo item gallery
-
 
           let t_st = ScrollTrigger.create({
             trigger: els[i],
@@ -260,12 +233,8 @@
 
           scrolltriggers.push(t_st);
         }
-
-
-
-        console.log(scrolltriggers)
       }
-
+      // ---------------------------------------------
 
 
 
