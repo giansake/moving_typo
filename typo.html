@@ -12,13 +12,15 @@
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/MotionPathPlugin.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <title>Moving Typography At Scroll</title>
 
   </head>
   <body>
     <div id="volanti" class="section">
+
+
 
       <svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1004.65 768">
         <title>Senza titolo-1</title>
@@ -37,39 +39,82 @@
 
 
 
+
+
+
+
+      <!-- <svg id="Livello_2" data-name="Livello 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 817.6 776.88">
+        <title>Senza titolo-1</title>
+        <path id="_wm" d="M249.79,336.1H261l11.12,42.19h.16l12.65-42.19h10.55l12.41,42.19h.17l11.36-42.19h10.87l-16.8,57.44h-9.9l-13.46-43.08H290l-13.47,43.08h-9.9Z" transform="translate(6.56 0.49)" style="fill: red"/>
+        <path id="_om" d="M333.36,364.66a32.12,32.12,0,0,1,2.31-12.45,27.37,27.37,0,0,1,6.41-9.46,28.47,28.47,0,0,1,9.73-6,34.76,34.76,0,0,1,12.3-2.11,35.34,35.34,0,0,1,12.41,2.11,28.83,28.83,0,0,1,9.81,6,27.21,27.21,0,0,1,6.46,9.46,32.12,32.12,0,0,1,2.31,12.45A31.73,31.73,0,0,1,392.79,377a28.33,28.33,0,0,1-6.46,9.57,29.25,29.25,0,0,1-9.81,6.25A33.64,33.64,0,0,1,364.11,395a33.09,33.09,0,0,1-12.3-2.23,28.9,28.9,0,0,1-9.73-6.25,28.5,28.5,0,0,1-6.41-9.57A31.73,31.73,0,0,1,333.36,364.66Zm11.11,0a24.3,24.3,0,0,0,1.42,8.48,19.72,19.72,0,0,0,4.06,6.69,18.57,18.57,0,0,0,6.24,4.42,19.66,19.66,0,0,0,8,1.58,19.88,19.88,0,0,0,8-1.58,18.57,18.57,0,0,0,6.29-4.42,19.7,19.7,0,0,0,4.05-6.69,24.3,24.3,0,0,0,1.42-8.48,23.45,23.45,0,0,0-1.42-8.28,20.15,20.15,0,0,0-4-6.65,18.63,18.63,0,0,0-6.25-4.46,19.77,19.77,0,0,0-8.11-1.62,19.45,19.45,0,0,0-8.07,1.62,18.67,18.67,0,0,0-6.21,4.46,20.34,20.34,0,0,0-4,6.65A23.45,23.45,0,0,0,344.47,364.66Z" transform="translate(6.56 0.49)" style="fill: red"/>
+        <path id="_rm" d="M405,336.1h20a35.79,35.79,0,0,1,7.86.85,20.34,20.34,0,0,1,6.78,2.8,14.54,14.54,0,0,1,4.74,5.11,15.48,15.48,0,0,1,1.79,7.71,14.67,14.67,0,0,1-3.53,10.18,17.8,17.8,0,0,1-9.61,5.32l15.33,25.47H436L422.68,369.2h-7.46v24.34H405Zm18.58,24.75a29.46,29.46,0,0,0,4.38-.33,12.56,12.56,0,0,0,3.93-1.22,7.66,7.66,0,0,0,2.88-2.55,7.38,7.38,0,0,0,1.14-4.26,6.54,6.54,0,0,0-1.06-3.86,7.86,7.86,0,0,0-2.67-2.39,11.27,11.27,0,0,0-3.7-1.21,25.5,25.5,0,0,0-4-.33h-9.25v16.15Z" transform="translate(6.56 0.49)" style="fill: red"/>
+        <path id="_km" d="M456,336.1h10.22v24.82h.24l24-24.82H504.3l-26.85,26.53,28.63,30.91H491.72l-25.23-28.8h-.24v28.8H456Z" transform="translate(6.56 0.49)" style="fill: red"/>
+        <path id="_sm" d="M541.22,348.11a12.43,12.43,0,0,0-4.59-3.53,13.61,13.61,0,0,0-6-1.42,15,15,0,0,0-3.57.44,11.1,11.1,0,0,0-3.25,1.38,7.74,7.74,0,0,0-2.39,2.44,6.71,6.71,0,0,0-.93,3.61,6.52,6.52,0,0,0,.81,3.33,7.33,7.33,0,0,0,2.23,2.35,15,15,0,0,0,3.45,1.7c1.35.49,2.84,1,4.46,1.46,1.84.6,3.74,1.27,5.72,2a22.42,22.42,0,0,1,5.43,3,14.81,14.81,0,0,1,4.06,4.71,14.25,14.25,0,0,1,1.58,7.05,18,18,0,0,1-1.7,8.08,16.68,16.68,0,0,1-4.54,5.72,19.43,19.43,0,0,1-6.66,3.4,27.88,27.88,0,0,1-8,1.14,30.13,30.13,0,0,1-11-2.07,21.17,21.17,0,0,1-8.76-6.12l7.3-6.82a14.67,14.67,0,0,0,5.64,4.63,15.1,15.1,0,0,0,10.58,1.26,9.63,9.63,0,0,0,3.37-1.51,8.52,8.52,0,0,0,2.44-2.63,7.68,7.68,0,0,0,.93-3.94,6.43,6.43,0,0,0-1.06-3.77,9.49,9.49,0,0,0-2.83-2.6,20.67,20.67,0,0,0-4.22-1.9l-5.12-1.71a52.05,52.05,0,0,1-5.19-1.94,17.17,17.17,0,0,1-4.66-3,14.38,14.38,0,0,1-3.37-4.58,15.6,15.6,0,0,1-1.3-6.77A14.81,14.81,0,0,1,512,344a16.08,16.08,0,0,1,4.78-5.23,21.43,21.43,0,0,1,6.74-3.09,29.62,29.62,0,0,1,7.66-1,27.54,27.54,0,0,1,8.89,1.54,21.73,21.73,0,0,1,7.83,4.63Z" transform="translate(6.56 0.49)" style="fill: red"/>
+        <path id="wm_" d="M287.82,369C265,369,148,401,148,330s4-126,93-158S399,105,376,60,282,0,282,0" transform="translate(6.56 0.49)" style="fill: none;stroke: red;stroke-miterlimit: 10"/>
+        <path id="om_" d="M361.5,366.5c22-2,131-4,155,77s-11,162-106,149-106-91-69-110,421,27,334,154-564,144-633,33,32-196-49-205" transform="translate(6.56 0.49)" style="fill: none;stroke: red;stroke-miterlimit: 10"/>
+        <path id="rm_" d="M423.5,360.5c23-8,55-26,39-74s-217-141-88-165,149,32,89,68,110-26-140,58-354,233-225,357,210,37,302,111,104,52,104,52" transform="translate(6.56 0.49)" style="fill: none;stroke: red;stroke-miterlimit: 10"/>
+        <path id="km_" d="M466.5,364.5c38-28,34-119,124-50s-7,128,118,162,100,42,100,42" transform="translate(6.56 0.49)" style="fill: none;stroke: red;stroke-miterlimit: 10"/>
+        <path id="sm_" d="M533.5,371.5c55-13,288,42,242-70s-71-202-136-130-128,29-49,143,171,192,113,273-114-85-161,56,27,45,113,101,14,20,14,20" transform="translate(6.56 0.49)" style="fill: none;stroke: red;stroke-miterlimit: 10"/>
+      </svg> -->
+
+
+      <svg id="Livello_2" data-name="Livello 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 803 768.46">
+        <title>Senza titolo-1</title>
+        <path id="_wm" d="M249.79,336.1H261l11.12,42.19h.16l12.65-42.19h10.55l12.41,42.19h.17l11.36-42.19h10.87l-16.8,57.44h-9.9l-13.46-43.08H290l-13.47,43.08h-9.9Z" transform="translate(0 1.69)" style="fill: red"/>
+        <path id="_om" d="M333.36,364.66a32.12,32.12,0,0,1,2.31-12.45,27.37,27.37,0,0,1,6.41-9.46,28.47,28.47,0,0,1,9.73-6,34.76,34.76,0,0,1,12.3-2.11,35.34,35.34,0,0,1,12.41,2.11,28.83,28.83,0,0,1,9.81,6,27.21,27.21,0,0,1,6.46,9.46,32.12,32.12,0,0,1,2.31,12.45A31.73,31.73,0,0,1,392.79,377a28.33,28.33,0,0,1-6.46,9.57,29.25,29.25,0,0,1-9.81,6.25A33.64,33.64,0,0,1,364.11,395a33.09,33.09,0,0,1-12.3-2.23,28.9,28.9,0,0,1-9.73-6.25,28.5,28.5,0,0,1-6.41-9.57A31.73,31.73,0,0,1,333.36,364.66Zm11.11,0a24.3,24.3,0,0,0,1.42,8.48,19.72,19.72,0,0,0,4.06,6.69,18.57,18.57,0,0,0,6.24,4.42,19.66,19.66,0,0,0,8,1.58,19.88,19.88,0,0,0,8-1.58,18.57,18.57,0,0,0,6.29-4.42,19.7,19.7,0,0,0,4.05-6.69,24.3,24.3,0,0,0,1.42-8.48,23.45,23.45,0,0,0-1.42-8.28,20.15,20.15,0,0,0-4-6.65,18.63,18.63,0,0,0-6.25-4.46,19.77,19.77,0,0,0-8.11-1.62,19.45,19.45,0,0,0-8.07,1.62,18.67,18.67,0,0,0-6.21,4.46,20.34,20.34,0,0,0-4,6.65A23.45,23.45,0,0,0,344.47,364.66Z" transform="translate(0 1.69)" style="fill: red"/>
+        <path id="_rm" d="M405,336.1h20a35.79,35.79,0,0,1,7.86.85,20.34,20.34,0,0,1,6.78,2.8,14.54,14.54,0,0,1,4.74,5.11,15.48,15.48,0,0,1,1.79,7.71,14.67,14.67,0,0,1-3.53,10.18,17.8,17.8,0,0,1-9.61,5.32l15.33,25.47H436L422.68,369.2h-7.46v24.34H405Zm18.58,24.75a29.46,29.46,0,0,0,4.38-.33,12.56,12.56,0,0,0,3.93-1.22,7.66,7.66,0,0,0,2.88-2.55,7.38,7.38,0,0,0,1.14-4.26,6.54,6.54,0,0,0-1.06-3.86,7.86,7.86,0,0,0-2.67-2.39,11.27,11.27,0,0,0-3.7-1.21,25.5,25.5,0,0,0-4-.33h-9.25v16.15Z" transform="translate(0 1.69)" style="fill: red"/>
+        <path id="_km" d="M456,336.1h10.22v24.82h.24l24-24.82H504.3l-26.85,26.53,28.63,30.91H491.72l-25.23-28.8h-.24v28.8H456Z" transform="translate(0 1.69)" style="fill: red"/>
+        <path id="_sm" d="M541.22,348.11a12.43,12.43,0,0,0-4.59-3.53,13.61,13.61,0,0,0-6-1.42,15,15,0,0,0-3.57.44,11.1,11.1,0,0,0-3.25,1.38,7.74,7.74,0,0,0-2.39,2.44,6.71,6.71,0,0,0-.93,3.61,6.52,6.52,0,0,0,.81,3.33,7.33,7.33,0,0,0,2.23,2.35,15,15,0,0,0,3.45,1.7c1.35.49,2.84,1,4.46,1.46,1.84.6,3.74,1.27,5.72,2a22.42,22.42,0,0,1,5.43,3,14.81,14.81,0,0,1,4.06,4.71,14.25,14.25,0,0,1,1.58,7.05,18,18,0,0,1-1.7,8.08,16.68,16.68,0,0,1-4.54,5.72,19.43,19.43,0,0,1-6.66,3.4,27.88,27.88,0,0,1-8,1.14,30.13,30.13,0,0,1-11-2.07,21.17,21.17,0,0,1-8.76-6.12l7.3-6.82a14.67,14.67,0,0,0,5.64,4.63,15.1,15.1,0,0,0,10.58,1.26,9.63,9.63,0,0,0,3.37-1.51,8.52,8.52,0,0,0,2.44-2.63,7.68,7.68,0,0,0,.93-3.94,6.43,6.43,0,0,0-1.06-3.77,9.49,9.49,0,0,0-2.83-2.6,20.67,20.67,0,0,0-4.22-1.9l-5.12-1.71a52.05,52.05,0,0,1-5.19-1.94,17.17,17.17,0,0,1-4.66-3,14.38,14.38,0,0,1-3.37-4.58,15.6,15.6,0,0,1-1.3-6.77A14.81,14.81,0,0,1,512,344a16.08,16.08,0,0,1,4.78-5.23,21.43,21.43,0,0,1,6.74-3.09,29.62,29.62,0,0,1,7.66-1,27.54,27.54,0,0,1,8.89,1.54,21.73,21.73,0,0,1,7.83,4.63Z" transform="translate(0 1.69)" style="fill: red"/>
+        <path id="wm_" d="M289.5,364.5c28,0,63-31,63-72,0-28-10-50-63-50s-188,39-188-12,82-99,92-53S.5,326.5.5,536.5" transform="translate(0 1.69)" style="fill: none;stroke: blue;stroke-miterlimit: 10"/>
+        <path id="om_" d="M364.5,364.5h23c16,0,64,21,40,63s-96,62-143,65c-54.92,3.51-126-8-136-45s37.18-48.7,71-42c111,22,328,152,199,361" transform="translate(0 1.69)" style="fill: none;stroke: blue;stroke-miterlimit: 10"/>
+        <path id="rm_" d="M426.5,365.5c7,0,71-1,47-43-21-36.8-23-164,85-160,55.28,2.05,78,63.61,38,95-42,33-214.87,65.34-238-36-21-92,134-189,109-220" transform="translate(0 1.69)" style="fill: none;stroke: blue;stroke-miterlimit: 10"/>
+        <path id="km_" d="M480,365c31.5-6.5,37.5-61.5,113.5-64.5,76.78-3,138,81,138,213,0,110.17-103,151-164,102-29.35-23.57-32-112,86-143s148-74,149-87" transform="translate(0 1.69)" style="fill: none;stroke: blue;stroke-miterlimit: 10"/>
+        <path id="sm_" d="M528.5,364.5c17,0,61,3,88-11,84.5-43.82,155-111,127-219C718,36,584.5,43.5,565.5-1.5" transform="translate(0 1.69)" style="fill: none;stroke: blue;stroke-miterlimit: 10"/>
+      </svg>
+
+
+
+
+
     </div>
 
     <div class="section_2">
 
+
     </div>
-    <div class="section_3_gallery">
-      <div class="image">
-        <img src="https://www.fillmurray.com/640/360">
+    <div class="gallery_wrapper">
+      <div class="gallery_header above_all pin_header">
+        <h4>HIGHLIGHTS</h4>
       </div>
-      <div class="image">
-        <img src="https://www.fillmurray.com/640/360">
+      <div class="pin1_header pin_header">
+        <h4>Titolo progetto</h4>
       </div>
-      <div class="image">
-        <img src="https://www.fillmurray.com/640/360">
+      <div class="section_3_gallery" id="gallery_row_1">
+        <div class="image">
+          <img src="https://www.fillmurray.com/640/360">
+        </div>
+        <div class="image">
+          <img src="https://www.fillmurray.com/640/360">
+        </div>
       </div>
-      <div class="image">
-        <img src="https://www.fillmurray.com/640/360">
+      <div class="pin2_header pin_header">
+        <h4>Titolo progetto</h4>
       </div>
-      <div class="image">
-        <img src="https://www.fillmurray.com/640/360">
+      <div class="section_3_gallery" id="gallery_row_2">
+        <div class="image">
+          <img src="https://www.fillmurray.com/640/360">
+        </div>
+        <div class="image">
+          <img src="https://www.fillmurray.com/640/360">
+        </div>
       </div>
-      <div class="image">
-        <img src="https://www.fillmurray.com/640/360">
-      </div>
-      <div class="image">
-        <img src="https://www.fillmurray.com/640/360">
-      </div>
-      <div class="image">
-        <img src="https://www.fillmurray.com/640/360">
-      </div>
-      <div class="image">
-        <img src="https://www.fillmurray.com/640/360">
-      </div>
+    </div>
+
+
+
+
+    <div class="placeholder">
+
     </div>
 
     <script type="text/javascript">
@@ -112,7 +157,6 @@
 
 
 
-
       // ------------------------
       // ------------------------
 
@@ -149,73 +193,167 @@
       const letters_ = ["#_w","#_o","#_r","#_k", "#_s"];
       const paths_ = ["#w_","#o_","#r_","#k_", "#s_"];
 
+      const letters_m = ["#_wm","#_om","#_rm","#_km", "#_sm"];
+      const paths_m = ["#wm_","#om_","#rm_","#km_", "#sm_"];
+
       function fade_out(){
         console.log('ENDED');
         gsap.to('#volanti', {duration:0.8, opacity:0, onComplete:function(){
-          document.getElementById('volanti').style.display = "none";
+          if (document.getElementById('volanti').style.display!="none") {
+            document.getElementById('volanti').style.display = "none";
+          }
         }})
       }
 
       function fade_in(){
-        console.log('STARTED AGAIN');
-        document.getElementById('volanti').style.display = "block";
+
+        if (document.getElementById('volanti').style.display == "none") {
+            document.getElementById('volanti').style.display = "block";
+        }
+
         gsap.to('#volanti', {duration:0.8, opacity:1, onComplete:function(){
         }})
       }
-
+      var dur=1;
       function animate(){
-        var new_tl = gsap.timeline({paused:true,
-          scrollTrigger: {
-            trigger: ".section",
-            markers:true,
-            pin: true,   // pin the trigger element while active
-            start: "top top", // when the top of the trigger hits the top of the viewport
-            end: "+="+window.innerHeight, // end after scrolling 500px beyond the start
-            scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-            onLeave: () => fade_out(),
-            onEnterBack: () => fade_in(),
-          }
-        });
 
 
-
-
-
-        var dur=1;
-        letters_.forEach((letter, i) => {
-          new_tl.to(
-            letter,
-            {
-              duration:dur,
-              // ease: "expo.in",
-              // opacity:0,
-              scale:8,
-              motionPath:{
-                path: paths_[i],
-                align: paths_[i],
-                autoRotate: true,
-                alignOrigin: [0.5, 0.5]
+        ScrollTrigger.matchMedia({
+          "(min-width: 800px)": function(){
+            let new_tl = gsap.timeline({paused:true,
+              scrollTrigger: {
+                trigger: ".section",
+                markers:true,
+                pin: true,   // pin the trigger element while active
+                start: "top top", // when the top of the trigger hits the top of the viewport
+                end: "+="+window.innerHeight, // end after scrolling 500px beyond the start
+                scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+                onLeave: () => fade_out(),
+                onEnterBack: () => fade_in(),
               }
-            }, '<-0.02');
-          new_tl.from(
-            letter,
-            {
-              duration:dur,
-              fill:"white",
-            }, '<');
-        });
-
-        new_tl.to(
-          '.section_2',
-          {
-            duration:dur,
-            backgroundColor:"black"
-          },'<');
+            });
 
 
-        // new_tl.restart(true, false);
+            letters_.forEach((letter, i) => {
+              new_tl.to(
+                letter,
+                {
+                  duration:dur,
+                  // ease: "expo.in",
+                  // opacity:0,
+                  scale:8,
+                  motionPath:{
+                    path: paths_[i],
+                    align: paths_[i],
+                    autoRotate: true,
+                    alignOrigin: [0.5, 0.5]
+                  }
+                }, '<-0.02');
+              new_tl.from(
+                letter,
+                {
+                  duration:dur,
+                  fill:"white",
+                }, '<');
+            });
 
+            new_tl.to(
+              '.section_2',
+              {
+                duration:dur/2,
+                backgroundColor:"black"
+              },'<');
+
+          },
+
+
+
+
+
+
+          "(max-width: 800px)": function(){
+            let new_tl = gsap.timeline({paused:true,
+              scrollTrigger: {
+                trigger: ".section",
+                markers:true,
+                pin: true,   // pin the trigger element while active
+                start: "top top", // when the top of the trigger hits the top of the viewport
+                end: "+="+window.innerHeight, // end after scrolling 500px beyond the start
+                scrub: 0.8, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+                onLeave: () => fade_out(),
+                onEnterBack: () => fade_in(),
+              }
+            });
+
+            var dur=1;
+            letters_m.forEach((letter, i) => {
+              new_tl.to(
+                letter,
+                {
+                  duration:dur,
+                  // ease: "expo.in",
+                  // opacity:0,
+                  scale:4,
+                  motionPath:{
+                    path: paths_m[i],
+                    align: paths_m[i],
+                    autoRotate: true,
+                    alignOrigin: [0.5, 0.5]
+                  }
+                }, '<-0.02');
+              new_tl.from(
+                letter,
+                {
+                  duration:dur,
+                  fill:"white",
+                }, '<');
+            });
+
+            new_tl.to(
+              '.section_2',
+              {
+                duration:dur/2,
+                backgroundColor:"black"
+              },'<');
+
+          }
+        })
       }
+
+
+      var gallery_pin1_dur = document.getElementById('gallery_row_1').getBoundingClientRect().height;
+      var gallery_pin2_dur = document.getElementById('gallery_row_2').getBoundingClientRect().height;
+      var gallery_pin_dur = gallery_pin1_dur + gallery_pin2_dur;
+
+      console.log(gallery_pin_dur);
+      ScrollTrigger.create({
+        trigger: ".gallery_header",
+        start: "top top",
+        end:gallery_pin_dur+20+window.innerHeight,
+        pin: true,
+        markers:true,
+        pinSpacing: false
+      });
+
+      ScrollTrigger.create({
+        trigger: ".pin1_header",
+        start: "top 20px",
+        end:gallery_pin1_dur+window.innerHeight,
+        pin: true,
+        markers:true,
+        pinSpacing: false
+      });
+
+      ScrollTrigger.create({
+        trigger: ".pin2_header",
+        start: "top 20px",
+        end:gallery_pin2_dur+20+(window.innerHeight*2),
+        pin: true,
+        markers:true,
+        pinSpacing: false
+      });
+
+
     </script>
   </body>
 </html>
