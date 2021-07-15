@@ -100,6 +100,9 @@
           <div class="ui-group">
             <h3>SERVICES</h3>
             <div class="button-group" data-filter="services">
+              <button class="button" data-filter="" type="button" name="button">
+                All
+              </button>
               <button class="button" data-filter=".editorial" type="button" name="button">
                 Editorial
               </button>
@@ -113,6 +116,9 @@
           <div class="ui-group">
             <h3>CLIENTS</h3>
             <div class="button-group" data-filter="clients">
+              <button class="button" data-filter="" type="button" name="button">
+                All
+              </button>
               <button class="button" data-filter=".timberland" type="button" name="button">
                 Timberland
               </button>
@@ -129,6 +135,9 @@
           <div class="ui-group">
             <h3>PHOTOGRAPHER</h3>
             <div class="button-group" data-filter="clients">
+              <button class="button" data-filter="" type="button" name="button">
+                All
+              </button>
               <button class="button" data-filter=".frank_lebon" type="button" name="button">
                 Frank Lebon
               </button>
@@ -141,16 +150,23 @@
         </div>
 
 
+
+
+
         <div class="index_list">
-          <div class="index_item editorial timberland frank_lebon">
-            <h3>Timberland</h3>
+          <div img-target="img1" class="index_item editorial timberland frank_lebon">
+            <h3 class="voice" data-src="https://loremflickr.com/360/640" onmouseenter="show_cover(this)" onmouseout="clean_cover(this)">Timberland</h3>
           </div>
-          <div class="index_item set_design sportmax frank_lebon">
-            <h3>Sportmax</h3>
+          <div img-target="img2" class="index_item set_design sportmax frank_lebon">
+            <h3 class="voice" data-src="https://loremflickr.com/260/340" onmouseenter="show_cover(this)" onmouseout="clean_cover(this)">Sportmax</h3>
           </div>
-          <div class="index_item set_design magazine ferry_van_der_nat">
-            <h3>Magazine</h3>
+            <div img-target="img3" class="index_item set_design magazine ferry_van_der_nat">
+            <h3 class="voice" data-src="https://loremflickr.com/160/340" onmouseenter="show_cover(this)" onmouseout="clean_cover(this)">Magazine</h3>
           </div>
+
+          <!-- <div id="cover_container" class=""></div> -->
+          <div  id="cover_container" class="ball"></div>
+
         </div>
 
 
@@ -165,14 +181,117 @@
 
 
 
+
+
+
     <script type="text/javascript">
+
+    var offset_X = 0;
+    var offset_Y = 0;
+
+
+    gsap.set(".ball", {xPercent: -50, yPercent: -50});
+
+    const ball = document.querySelector(".ball");
+    const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const mouse = { x: pos.x, y: pos.y };
+    const speed = 0.35;
+
+    const xSet = gsap.quickSetter(ball, "x", "px");
+    const ySet = gsap.quickSetter(ball, "y", "px");
+
+    window.addEventListener("mousemove", e => {
+      mouse.x = e.x;
+      mouse.y = e.y;
+    });
+
+    gsap.ticker.add(() => {
+
+      // adjust speed for higher refresh monitors
+      const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
+
+      pos.x += (mouse.x - pos.x) * dt;
+      pos.y += (mouse.y - pos.y) * dt;
+      xSet(pos.x + offset_X);
+      ySet(pos.y + offset_Y);
+    });
+
+    // special thanks to Blake Bowen for most of the code.
+
+
+
+    function randomNum(range){
+      return Math.floor(Math.random() * range);
+
+    }
+
+
+    var is_moving = false;
+
+      function clean_cover(element){
+        let image_id = element.getAttribute("img-target");
+
+        element.classList.remove('highlighted_title');
+        // document.getElementById('cover_container').innerHTML = "";
+
+        if (document.getElementById('cover_container').innerHTML !=  "") {
+          gsap.to('#'+image_id, {duration:0.3, opacity:0, ease:"expo.in", onComplete:function(){
+            document.getElementById(image_id).remove();
+          }})
+        }
+
+
+        console.log('clean');
+
+        // document.getElementById('cover_container').innerHTML = "";
+        //
+        // is_moving = false;
+        // console.log(is_moving);
+      }
+
+      function show_cover(element){
+          let src = element.getAttribute("data-src");
+          let image_id = element.getAttribute("img-target");
+          // console.log('image'+src);
+          const img = document.createElement("img");
+
+          img.id = image_id;
+          img.classList.add("image_cover");
+
+          img.style.marginLeft = randomNum(190)+"px";
+          img.style.marginTop = randomNum(190)+"px";
+          img.src = src;
+
+          document.getElementById('cover_container').appendChild(img);
+
+          element.classList.add('highlighted_title');
+
+          //---
+          // .addEventListener('mousemove', e => {
+          //   if (isDrawing === true) {
+          //     drawLine(context, x, y, e.offsetX, e.offsetY);
+          //     x = e.offsetX;
+          //     y = e.offsetY;
+          //   }
+          // });
+          //---
+      }
+
+
 
       // ---------------------------------------------
       // ISOTOPE (filters)
       jQuery(function($) {
         var $grid = $('.index_list').isotope({
           itemSelector: '.index_item',
-          layoutMode: 'vertical'
+          layoutMode: 'vertical',
+          // disable scale transform transition when hiding
+          hiddenStyle: {
+            opacity: 0
+          },
+          visibleStyle: {
+            opacity: 1
+          }
         });
 
         // store filter for each group
@@ -329,6 +448,47 @@
       }
       // ---------------------------------------------
 
+
+
+      // ---------------------------------------------
+      // MOUSE POSITION
+      var mouseX = 0;
+      var mouseY = 0;
+
+        (function() {
+          "use strict";
+
+          document.onmousemove = handleMouseMove;
+          function handleMouseMove(event) {
+            var dot, eventDoc, doc, body, pageX, pageY;
+
+            event = event || window.event; // IE-ism
+
+            // If pageX/Y aren't available and clientX/Y
+            // are, calculate pageX/Y - logic taken from jQuery
+      			// Calculate pageX/Y if missing and clientX/Y available
+            if (event.pageX == null && event.clientX != null) {
+              eventDoc = (event.target && event.target.ownerDocument) || document;
+              doc = eventDoc.documentElement;
+              body = eventDoc.body;
+
+              event.pageX = event.clientX +
+                (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+                (doc && doc.clientLeft || body && body.clientLeft || 0);
+              event.pageY = event.clientY +
+                (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
+                (doc && doc.clientTop  || body && body.clientTop  || 0 );
+            }
+
+            mouseX = event.pageX;
+            mouseY = event.pageY;
+
+
+            // gsap.to('#cover_container', {duration:0.2, x:mouseX, y:mouseY})
+
+          }
+        })();
+        // ---------------------------------------------
 
 
 

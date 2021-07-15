@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="style_.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <!-- SPLITTING -->
+    <script type="text/javascript" src="https://unpkg.com/splitting@1.0.6/dist/splitting.min.js"></script>
+    <!-- GSAP -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/MotionPathPlugin.min.js"></script>
+    <script src="jquery-resizeEnd.min.js"></script>
+
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+
+    <title>Image on hover</title>
+
+  </head>
+  <body>
+
+
+
+    <div class="test-wrapper">
+
+      <div id="hover-wrapper" target-id="hover-media" class="hover-div" onmouseenter="load_media(this)" onmouseleave="toggle(this)">
+        <div id="hover-media" data-src="https://loremflickr.com/360/540" class="image-div">
+        </div>
+      </div>
+
+      <div id="hover-wrapper2" target-id="hover-media2" class="hover-div" onmouseenter="load_media(this)" onmouseleave="toggle(this)">
+        <h4>TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST</h4>
+        <div id="hover-media2" data-src="https://loremflickr.com/260/640" class="image-div">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="placeholder">
+
+    </div>
+
+
+    <script type="text/javascript">
+
+
+
+    function scale (number, inMin, inMax, outMin, outMax) {
+      return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    }
+
+    // ------------------------------------------
+    // mousemove
+
+    var timesPerSecond = 100;
+    var wait = false;
+
+    document.getElementById('hover-wrapper').addEventListener('mousemove', e => {
+
+      document.getElementById('hover-media').style.opacity="1";
+
+      if (!wait) {
+        let element_wrapper = document.getElementById('hover-wrapper');
+        let new_x = e.clientX - element_wrapper.getBoundingClientRect().left;
+        // let new_y = scale(e.offsetY, -1, 84, -40, 40) - document.getElementById('hover-media').getBoundingClientRect().height/2;
+        let new_y = scale(element_wrapper.getBoundingClientRect().bottom - e.clientY, -1, 84, 30, -30) - document.getElementById('hover-media').getBoundingClientRect().height/2;
+
+
+        gsap.to('#hover-media', {duration:0.3, x:new_x, y:new_y, ease:"pow4.out"});
+
+        wait = true;
+        setTimeout(function () {
+          wait = false;
+        }, 1000 / timesPerSecond);
+      }
+
+     });
+
+
+
+     document.getElementById('hover-wrapper2').addEventListener('mousemove', e => {
+
+       document.getElementById('hover-media2').style.opacity="1";
+
+       if (!wait) {
+         let element_wrapper = document.getElementById('hover-wrapper2');
+         let new_x = e.clientX - element_wrapper.getBoundingClientRect().left;
+         // let new_y = scale(e.offsetY, -1, 84, -40, 40) - document.getElementById('hover-media').getBoundingClientRect().height/2;
+         let new_y = scale(element_wrapper.getBoundingClientRect().bottom - e.clientY, -1, 84, 40, -40) - document.getElementById('hover-media').getBoundingClientRect().height/2;
+
+         gsap.to('#hover-media2', {duration:0.3, x:new_x, y:new_y, ease:"pow4.out"});
+
+         wait = true;
+         setTimeout(function () {
+           wait = false;
+         }, 1000 / timesPerSecond);
+       }
+
+      });
+
+
+      function toggle(element){
+        let t_id = element.getAttribute('target-id');
+        let img_container = document.getElementById(t_id);
+        gsap.to('#'+t_id, {duration:0.3, delay:0.4, opacity:0, onComplete:function(){
+          element.children[0].classList.remove('highlighted_title');
+          element.classList.remove('highlighted_title');
+        }});
+        // document.getElementById(t_id).style.opacity = "0"
+
+
+
+      }
+
+      function load_media(element){
+        let t_id = element.getAttribute('target-id');
+        let img_container = document.getElementById(t_id);
+        let img_url = img_container.getAttribute('data-src');
+
+        if (img_container.style.backgroundImage != "") {
+
+        }else{
+          img_container.style.backgroundImage = "url('"+ img_url +"')"
+        }
+
+        element.children[0].classList.add('highlighted_title');
+        element.classList.add('highlighted_title');
+        // img_container.classList.add('highlighted_title');
+      }
+     // ------------------------------------------
+
+    </script>
+
+
+
+  </body>
+</html>
