@@ -106,13 +106,10 @@
       function toggle(element){
         let t_id = element.getAttribute('target-id');
         let img_container = document.getElementById(t_id);
-        gsap.to('#'+t_id, {duration:0.3, delay:0.4, opacity:0, onComplete:function(){
+        gsap.to('#'+t_id, {duration:0.3, delay:0.3, opacity:0, onComplete:function(){
           element.children[0].classList.remove('highlighted_title');
           element.classList.remove('highlighted_title');
         }});
-        // document.getElementById(t_id).style.opacity = "0"
-
-
 
       }
 

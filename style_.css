@@ -157,6 +157,11 @@ body{
     width: 100%;
     border: 2px solid violet;
   }
+
+  .section.gallery_index > .index_filters{
+    min-height: unset;
+    height: 10vh;
+  }
 }
 
 
@@ -274,4 +279,11 @@ body{
   min-height: 100vh;
   background-color: black;
   width: 100%;
+}
+
+
+
+.inverted{
+  mix-blend-mode: difference;
+  color:white;
 }
