@@ -162,6 +162,12 @@ body{
     min-height: unset;
     height: 10vh;
   }
+
+  .image-div{
+    position: absolute;
+    right: 0;
+    transform:translateY(-50%);
+  }
 }
 
 

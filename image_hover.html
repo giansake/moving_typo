@@ -49,6 +49,54 @@
 
 
 
+    var wrapper1 = document.getElementById('hover-wrapper');
+    var wrapper2 = document.getElementById('hover-wrapper2');
+
+    var offset = 50;
+    var wdw_t_start = wrapper1.getBoundingClientRect().bottom;
+    var wdw_t_end = wrapper1.getBoundingClientRect().top - offset;
+
+
+
+    ScrollTrigger.matchMedia({
+      "(max-width: 800px)": function() {
+        let tl = gsap.timeline({
+            scrollTrigger: {
+            trigger: "#hover-wrapper",
+            scrub: 1,
+            start: "100 "+wdw_t_start+"px",
+            end: "bottom "+wdw_t_end+"px",
+            pin: true,
+            markers:true,
+            onEnter: () => load_media(wrapper1),
+            // onLeave: () => toggle(wrapper1)
+          }
+        });
+        tl.to('#hover-media', {duration:0.2, opacity:1});
+      }
+    });
+
+
+      ScrollTrigger.matchMedia({
+        "(max-width: 800px)": function() {
+          let tl = gsap.timeline({
+              scrollTrigger: {
+              trigger: "#hover-wrapper2",
+              scrub: 1,
+              start: "100 "+wdw_t_start+"px",
+              end: "bottom "+wdw_t_end+"px",
+              pin: true,
+              markers:true,
+              onEnter: () => load_media(wrapper2),
+              // onLeave: () => toggle(wrapper1)
+            }
+          });
+          tl.to('#hover-media2', {duration:0.2, opacity:1});
+        }
+      })
+
+
+
     function scale (number, inMin, inMax, outMin, outMax) {
       return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     }
