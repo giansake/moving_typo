@@ -15,7 +15,8 @@
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/MotionPathPlugin.min.js"></script>
     <script src="jquery-resizeEnd.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/Draggable.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/InertiaPlugin.min.js" charset="utf-8"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
 
@@ -24,12 +25,11 @@
   </head>
   <body>
 
+<div class="page">
 
-    <div class="ticket-container" style="background-image: url('assets/ticket.svg');">
-      <!-- <svg class="ticket-shape" id="Livello_2" data-name="Livello 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 481 263">
-        <title>svg ticket</title>
-        <path d="M731,281a6,6,0,0,1,5-5.91v-9.18a6,6,0,0,1,0-11.82V243.5H255v10a6,6,0,0,1,0,12v9a6,6,0,0,1,0,12v9a6,6,0,0,1,0,12v9a6,6,0,0,1,0,12v9a6,6,0,0,1,0,12v9a6,6,0,0,1,0,12v9a6,6,0,0,1,0,12v9a6,6,0,0,1,0,12v9a6,6,0,0,1,0,12v9a6,6,0,0,1,0,12v9a6,6,0,0,1,0,12v9a6,6,0,0,1,0,12v10H736v-9.59a6,6,0,0,1,0-11.82v-9.18a6,6,0,0,1,0-11.82v-9.18a6,6,0,0,1,0-11.82v-9.18a6,6,0,0,1,0-11.82v-9.18a6,6,0,0,1,0-11.82v-9.18a6,6,0,0,1,0-11.82v-9.18a6,6,0,0,1,0-11.82v-9.18a6,6,0,0,1,0-11.82v-9.18a6,6,0,0,1,0-11.82v-9.18a6,6,0,0,1,0-11.82v-9.18A6,6,0,0,1,731,281Z" transform="translate(-255 -243.5)" style="fill: #ffe000"/>
-      </svg> -->
+
+    <!-- start of ticket -->
+    <div id="ticket" class="ticket-container" style="background-image: url('assets/ticket.svg');">
 
       <div class="ticket-content-wrapper">
         <div class="ticket-col left"></div>
@@ -51,10 +51,58 @@
         <div class="ticket-col right"></div>
       </div>
     </div>
+    <!-- end of ticket -->
+
+
+    <button type="button" name="button" onclick="start_timeline();">
+      RESTART ANIMATION
+    </button>
+
+</div>
+
+  <script type="text/javascript">
+    var ticket = '#ticket';
+    var ticket_rect = document.getElementById('ticket').getBoundingClientRect();
+    var dur = 1;
+    var tl = gsap.timeline({
+      paused:true,
+      onComplete: enable_drag()
+    });
+
+
+    tl.set(ticket, {x:ticket_rect.width/2})
+    tl.from(ticket, {duration:2, y:-ticket_rect.width, rotate:90, ease:"expo.out"});
+
+
+    function start_timeline(){
+      tl.restart();
+    }
 
 
 
 
 
+
+
+    function enable_drag(){
+      gsap.config({trialWarn: false});
+      Draggable.create(".ticket-container", {
+          type:"x,y",
+          edgeResistance:0.65,
+          bounds:".page",
+          inertia:true,
+          onClick:function() {
+        		console.log("clicked");
+        	},
+        	onDragEnd:function() {
+        		console.log("drag ended");
+        	}
+      });
+
+      console.log('dragging [available]')
+    }
+
+
+  </script>
   </body>
 </html>

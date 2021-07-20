@@ -14,7 +14,10 @@ html::-webkit-scrollbar {
   display: none;
 }
 
-
+.page{
+  min-height: 100vh;
+  min-width: 100vw;
+}
 body{
   margin:0;
   font-family: Avenir;
