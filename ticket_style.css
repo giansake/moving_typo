@@ -1,0 +1,179 @@
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+html {
+  height: -webkit-fill-available;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+
+body{
+  margin:0;
+  font-family: Avenir;
+}
+
+
+@font-face {
+  font-family: Circus;
+  src: url('assets/circus-regular.woff');
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url('assets/Avenir-Demi.woff');
+}
+
+
+.ticket-container{
+  position: relative;
+  max-width: 560px;
+  height: 305px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.ticket-content-wrapper{
+  position: relative;
+  width: 85%;
+  height: 85%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+  border: 1px solid black;
+}
+
+.logo{
+  position: absolute;
+}
+.ticket-col{
+  position: relative;
+  width: 10%;
+
+  height: inherit;
+}
+.ticket-col.left{
+  border-right: 1px solid black;
+  height: 100%;
+}
+.ticket-col.right{
+  border-left: 1px solid black;
+  height: 100%;
+}
+
+.ticket-text-wrapper{
+  padding-top: 1em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  background: black;
+  color: #FFE000;
+}
+.ticket-title,
+.ticket-category{
+    font-size: 1.8rem;
+    margin:0;
+    text-align: center;
+}
+
+.ticket-date{
+  min-height: 35%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  justify-content: space-around;
+
+  border-top:1px solid black;
+}
+
+
+
+.info{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #FFE000;
+  color:black;
+}
+
+.info > h6{
+  text-align: center;
+  margin:0;
+  font-size: 1.8rem;
+}
+
+/* .ticket-date > .info:nth-child(1){
+  border-right: 1px solid black;
+} */
+
+.ticket-date > .info:nth-child(3),
+.ticket-date > .info:nth-child(1){
+  position: relative;
+}
+.ticket-date > .info:nth-child(1):after {
+  content : "";
+  position: absolute;
+  right:  0;
+
+  height  : 70%;
+  width   : 50%;
+  border-right:1px solid black;
+}
+
+.ticket-date > .info:nth-child(3):before {
+  content : "";
+  position: absolute;
+  left:  0;
+
+  height  : 70%;
+  width   : 50%;
+  border-left:1px solid black;
+}
+
+.ticket-title{
+  position: relative;
+  border-bottom: 1px solid #FFE000;;
+  margin: 0 15px 0;
+  padding-bottom: 10px;
+}
+
+
+.ticket-col.left:after,
+.ticket-col.right:after{
+  content : "CIRCUS";
+  font-family: Circus;
+  font-size: 2.5rem;
+  letter-spacing: 15px;
+  color: red;
+  transform: rotate(90deg);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ticket-col.left:after {
+  margin-left: -110%;
+}
+
+.ticket-col.right:after {
+  margin-right: -100%;
+}
