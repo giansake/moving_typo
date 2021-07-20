@@ -275,6 +275,7 @@ body{
   /* transform-origin: center; */
   /* left: 0; */
   background-color: red;
+  mix-blend-mode: difference;
   pointer-events: none;
 }
 #hover-media2{
